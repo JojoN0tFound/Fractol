@@ -3,64 +3,70 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:18:41 by julesqvgn         #+#    #+#             */
-/*   Updated: 2018/12/30 00:05:40 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/02 16:16:03 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-t_fract     *julia_init(t_fract *ptr)
+t_env		*julia_init(t_env *ptr)
 {
-    t_julia julia;
+	t_fract julia;
 
-    julia.x = 0;
-    julia.x1 = -1;
-    julia.x2 = 1;
-    julia.img_x = julia.x2 - julia.x1;
-    julia.y = 0;
-    julia.y1 = -1.2;
-    julia.y2 = 1.2;
-    julia.img_y = julia.y2 - julia.y1;
-    julia.zoom = 100;
-    julia.itmax = 150;
-    julia.c_r = 0.285;
-    julia.c_i = 0.01;
-    julia.z_r = julia.x / julia.zoom + julia.x1;
-    julia.z_i = julia.y / julia.zoom + julia.y1;
-    julia.color = 0;
-    ptr->name = (void *)julia;
-    return (ptr);
+	julia.zoom = 400;
+	julia.itmax = 50;
+	julia.x = 0;
+	julia.x1 = -1;
+	julia.y = 0;
+	julia.y1 = -1.2;
+	julia.color = 0x1ca1f2;
+	ptr->name = julia;
+	return (ptr);
 }
 
-int         ft_draw_julia(t_fract *ptr)
+t_env		*ft_draw_julia(t_env *ptr)
 {
-    int     i;
-    double  tmp;
+	int		i;
+	double	tmp;
 
-    i = 0;
-    while(ptr->julia.x < ptr->julia.img_x)
-    {
-        while(ptr->julia.y < ptr->julia.img_y)
-        {
-            tmp = ptr->julia.z_r;
-            ptr->julia.z_r = ptr->julia.z_r * ptr->julia.z_r - ptr->julia.z_i * ptr->julia.z_i + ptr->julia.c_r;
-            ptr->julia.z_i = 2 * ptr->julia.z_i * tmp + ptr->julia.c_i
-            i++;
-
-        }
-    }
-    return(1);
+	while(ptr->name.x < WIDTH)
+	{
+		ptr->name.y = 0;
+		while(ptr->name.y < HEIGH)
+		{
+			i = 0;
+			ptr->name.c_r = 0.285;
+			ptr->name.c_i = 0.01;
+			ptr->name.z_r = ptr->name.x / ptr->name.zoom + ptr->name.x1;
+			ptr->name.z_i = ptr->name.y / ptr->name.zoom + ptr->name.y1;
+			while (ptr->name.z_r * ptr->name.z_r + ptr->name.z_i * ptr->name.z_i < 4 && i < ptr->name.itmax)
+			{
+				tmp = ptr->name.z_r;
+				ptr->name.z_r = ptr->name.z_r * ptr->name.z_r - ptr->name.z_i * ptr->name.z_i - 0.8 + (ptr->name.c_r / WIDTH);
+				ptr->name.z_i = 2 * ptr->name.z_i * tmp + ptr->name.c_i / WIDTH;
+				i++;
+			}
+			if (i == ptr->name.itmax)
+				put_pixel(ptr, ptr->name.x, ptr->name.y, ptr->name.color + (ptr->name.x + ptr->name.y));
+			else
+				put_pixel(ptr, ptr->name.x, ptr->name.y, 0x0);
+			ptr->name.y += 1;
+		}
+		ptr->name.x += 1;
+	}
+	return(ptr);
 }
 
-int			ft_julia(t_fract *ptr)
+t_env		*ft_julia(t_env *ptr)
 {
-    ptr = julia_init(ptr);
-    if (!ft_draw_julia)
-        return (0);
-	return (1);
+	if (ptr->init == 0)
+		ptr = julia_init(ptr);
+	ptr = ft_draw_julia(ptr);
+	mlx_put_image_to_window(ptr->mlx_ptr, ptr->win_ptr, ptr->img_ptr, 0, 0);
+	return (ptr);
 }
 
 /*définir x1 = -1

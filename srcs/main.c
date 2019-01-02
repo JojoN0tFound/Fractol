@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 19:03:12 by julesqvgn         #+#    #+#             */
-/*   Updated: 2018/12/26 00:30:53 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/02 14:32:27 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		ft_princ(char *fract)
 {
-	t_fract	*ptr;
+	t_env	*ptr;
 
-	if (!(ptr = (t_fract *)malloc(sizeof(t_fract))))
+	if (!(ptr = (t_env *)malloc(sizeof(t_env))))
 		return (0);
 	if (!(ptr = ft_init(ptr, fract)))
 	{
@@ -24,9 +24,9 @@ int		ft_princ(char *fract)
 		ft_error(fract);
 		return (0);
 	}
-	ptr->fract = ft_strcmp(fract, "Julia") == 0 ? 1 : 0;
-	ptr->fract = ft_strcmp(fract, "Mandelbrot") == 0 ? 2 : 0;
-	if (!ft_fractol(ptr))
+	ptr->fract = (ft_strcmp(fract, "Julia") == 0) ? 0 : ptr->fract;
+	ptr->fract = (ft_strcmp(fract, "Mandelbrot") == 0) ? 1 : ptr->fract;
+	if (ptr->fract == -1 || !ft_fractol(ptr))
 		ft_error(fract);
 	free(ptr);
 	return (0);

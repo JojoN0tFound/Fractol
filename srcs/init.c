@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:16:01 by julesqvgn         #+#    #+#             */
-/*   Updated: 2018/12/26 00:30:59 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/02 14:51:17 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-t_fract		*ft_init(t_fract *ptr, char *fract)
+t_env		*ft_init(t_env *ptr, char *fract)
 {
-	ptr->fract = 0;
+	ptr->init = 0;
+	ptr->fract = -1;
 	if (!(ptr->mlx_ptr = mlx_init()))
 		return (NULL);
 	if (!(ptr->win_ptr = mlx_new_window(ptr->mlx_ptr, WIDTH, HEIGH, fract)))

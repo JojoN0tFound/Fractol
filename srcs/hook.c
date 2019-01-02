@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/26 00:17:50 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/02 16:11:38 by jquivogn         ###   ########.fr       */
+/*   Created: 2019/01/02 16:08:24 by jquivogn          #+#    #+#             */
+/*   Updated: 2019/01/02 16:13:23 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h" 
+#include "../include/fractol.h"
 
-t_env		*put_pixel(t_env *ptr, int x, int y, int color)
+int		ft_close(t_env *ptr)
 {
-	int	*img;
-
-	img = (int *)ptr->buff;
-	if (x < WIDTH && y < HEIGH)
-		img[x + WIDTH * y] = color;
-	return (ptr);
-}
-
-int			ft_fractol(t_env *ptr)
-{
-	t_env	*(*draw[2])(t_env *);
-
-	draw[0] = &ft_julia;
-	draw[1] = &ft_mandelbrot;
-	ptr = draw[ptr->fract](ptr);
-	mlx_hook(ptr->win_ptr, 2, 1L << 0, key_hook, ptr);
-	mlx_loop(ptr->mlx_ptr);
 	mlx_destroy_image(ptr->mlx_ptr, ptr->img_ptr);
 	mlx_destroy_window(ptr->mlx_ptr, ptr->win_ptr);
 	free(ptr->mlx_ptr);
-	return (1);
+	free(ptr);
+	exit(0);
+	return (0);
+}
+
+int		key_hook(int x, t_env *ptr)
+{
+	ft_bzero(ptr->buff, HEIGH * WIDTH * 4);
+	ptr->init = 1;
+	x == 53 ? ft_close(ptr) : 1;
+	// x == 0 ? ft_move(ptr, x) : 1;
+	// x == 1 ? ft_move(ptr, x) : 1;
+	// x == 2 ? ft_move(ptr, x) : 1;
+	// x == 13 ? ft_move(ptr, x) : 1;
+	// x == 126 ? ft_zoom(x, ptr) : 1;
+	// x == 125 ? ft_zoom(x, ptr) : 1;
+	// x == 8 ? ft_color(x, ptr) : 1;
+	return (0);
 }

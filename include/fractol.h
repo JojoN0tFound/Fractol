@@ -3,38 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 19:15:02 by julesqvgn         #+#    #+#             */
-/*   Updated: 2018/12/29 23:51:54 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/02 16:12:04 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-//# include <mlx.h>
+# include <mlx.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <math.h>
 # include "../libft/libft.h"
 
-#include "../../../minilibx_macos/mlx.h"
+/*#include "../../../minilibx_macos/mlx.h"*/
 #include <stdio.h>
 
-# define WIDTH 1200
+# define WIDTH 900
 # define HEIGH 900
 
-typedef	struct	s_julia
+typedef	struct	s_fract
 {
-	int			x;
-	int			x1;
-	int			x2;
-	int			img_x;
-	int			y;
-	int			y1;
-	int			y2;
-	int			img_y;
+	double		x;
+	double		x1;
+	double		x2;
+	double		img_x;
+	double		y;
+	double		y1;
+	double		y2;
+	double		img_y;
 	double		c_r;
 	double		c_i;
 	double		z_r;
@@ -42,10 +42,11 @@ typedef	struct	s_julia
 	int			itmax;
 	int			zoom;
 	int			color;
-}				t_julia;
+}				t_fract;
 
-typedef struct	s_fract
+typedef struct	s_env
 {
+	int		init;
 	int		fract;
 	void	*win_ptr;
 	void	*img_ptr;
@@ -54,20 +55,23 @@ typedef struct	s_fract
 	int		endian;
 	int		bpp;
 	int		pix;
-	void	*name;
-}				t_fract;
+	t_fract	name;
+}				t_env;
 
 int				main(int ac, char **av);
 int				ft_princ(char *fract);
 
-int				ft_fractol(t_fract *ptr);
-void			put_pixel(t_fract *ptr, int x, int y, int color);
+int				ft_fractol(t_env *ptr);
+t_env			*put_pixel(t_env *ptr, int x, int y, int color);
 
-int				ft_julia(t_fract *ptr);
-int				ft_mandelbrot(t_fract *ptr);
+t_env			*ft_julia(t_env *ptr);
+t_env			*ft_mandelbrot(t_env *ptr);
 
-t_fract			*ft_init(t_fract *ptr, char *fract);
+t_env			*ft_init(t_env *ptr, char *fract);
 int				ft_good_arg(char **av);
+
+int				ft_close(t_env *ptr);
+int				key_hook(int x, t_env *ptr);
 
 int				ft_error(char *fract);
 int				ft_usage(void);

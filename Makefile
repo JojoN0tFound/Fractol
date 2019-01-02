@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+         #
+#    By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/26 00:27:28 by julesqvgn         #+#    #+#              #
-#    Updated: 2018/12/26 00:52:58 by julesqvgn        ###   ########.fr        #
+#    Updated: 2019/01/02 16:10:48 by jquivogn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS =	srcs/main.c\
 		srcs/check.c\
 		srcs/julia.c\
 		srcs/mandelbrot.c\
-		#srcs/hook.c\
+		srcs/hook.c\
 		#srcs/hook2.c\
 		#srcs/tools.c\
 
@@ -32,7 +32,7 @@ INC = -I./include/
 
 LIBFT = -lft -L./libft/ -I./libft/
 
-MLX = -L/usr/X11/lib/ -lmlx -framework OpenGL -framework AppKit
+MLX = -lmlx -framework OpenGL -framework AppKit
 
 CFLAGS = -Wall -Werror -Wextra
 
