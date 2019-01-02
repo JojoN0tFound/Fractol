@@ -6,7 +6,7 @@
 /*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 19:15:02 by julesqvgn         #+#    #+#             */
-/*   Updated: 2018/12/26 00:53:57 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2018/12/29 23:51:54 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,25 @@
 # define WIDTH 1200
 # define HEIGH 900
 
+typedef	struct	s_julia
+{
+	int			x;
+	int			x1;
+	int			x2;
+	int			img_x;
+	int			y;
+	int			y1;
+	int			y2;
+	int			img_y;
+	double		c_r;
+	double		c_i;
+	double		z_r;
+	double		z_i;
+	int			itmax;
+	int			zoom;
+	int			color;
+}				t_julia;
+
 typedef struct	s_fract
 {
 	int		fract;
@@ -35,7 +54,7 @@ typedef struct	s_fract
 	int		endian;
 	int		bpp;
 	int		pix;
-	int		color;
+	void	*name;
 }				t_fract;
 
 int				main(int ac, char **av);
