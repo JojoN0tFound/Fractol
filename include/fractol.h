@@ -6,20 +6,20 @@
 /*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 19:15:02 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/04 17:34:34 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/09 14:00:01 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-//# include <mlx.h>
+# include <mlx.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <math.h>
 # include "../libft/libft.h"
 
-#include "../../../minilibx_macos/mlx.h"
+//#include "../../../minilibx_macos/mlx.h"
 #include <stdio.h>
 
 # define WIDTH 900

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pixel.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 16:11:20 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/04 16:57:19 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/09 20:39:47 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,8 @@ int			random_color(void)
 		nb = (int)c;
 		free(c);
 	}
-	n = (n * 1063);
 	nb = (nb * 4127);
-	return ((n * nb % 1325) * 255 * 255);
+	return ((nb % 13625) * 255 * 255);
 }
 
 t_env		*put_pixel(t_env *ptr, int x, int y, int color)

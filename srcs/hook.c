@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/02 16:08:24 by jquivogn          #+#    #+#             */
-/*   Updated: 2019/01/04 22:08:57 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/09 20:43:54 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int		ft_reset(t_env *ptr)
 
 int		key_hook(int x, t_env *ptr)
 {
-	ft_bzero(ptr->buff, HEIGH * WIDTH);
+	ft_bzero(ptr->buff, HEIGH * WIDTH * 4);
 	ptr->init = 1;
 	x == 53 ? ft_close(ptr) : 1;
 	x == 0 ? ft_move(ptr, x) : 1;

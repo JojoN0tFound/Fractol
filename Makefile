@@ -6,7 +6,7 @@
 #    By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/26 00:27:28 by julesqvgn         #+#    #+#              #
-#    Updated: 2019/01/04 16:11:58 by julesqvgn        ###   ########.fr        #
+#    Updated: 2019/01/09 14:00:17 by jquivogn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ INC = -I./include/
 
 LIBFT = -lft -L./libft/ -I./libft/
 
-MLX = -L../../minilibx_macos -lmlx -framework OpenGL -framework AppKit
+MLX = -lmlx -framework OpenGL -framework AppKit
 
 CFLAGS = -Wall -Werror -Wextra
 
