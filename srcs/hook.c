@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/02 16:08:24 by jquivogn          #+#    #+#             */
-/*   Updated: 2019/01/10 12:37:48 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/10 17:17:07 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,16 @@ int		ft_reset(t_env *ptr)
 	return (1);
 }
 
+int		select_color(int x, t_env *ptr)
+{
+	ptr->name.color = x == 18 ? 1 : ptr->name.color;
+	ptr->name.color = x == 19 ? 2 : ptr->name.color;
+	ptr->name.color = x == 20 ? 3 : ptr->name.color;
+	ptr->name.color = x == 21 ? 4 : ptr->name.color;
+	ft_fractol(ptr);
+	return (1);
+}
+
 int		key_hook(int x, t_env *ptr)
 {
 	ft_bzero(ptr->buff, HEIGH * WIDTH * 4);
@@ -94,5 +104,7 @@ int		key_hook(int x, t_env *ptr)
 	x == 125 ? ft_zoom(x, ptr) : 1;
 	x == 8 ? ft_changefract(x, ptr) : 1;
 	x == 15 ? ft_reset(ptr) : 1;
+	if (x >= 18 && x <= 21)
+		select_color(x, ptr);
 	return (0);
 }

@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 19:15:02 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/10 12:24:06 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/10 18:43:13 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-//# include <mlx.h>
+# include <mlx.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <math.h>
 # include "../libft/libft.h"
 
-#include "../../../minilibx_macos/mlx.h"
+//#include "../../../minilibx_macos/mlx.h"
 #include <stdio.h>
 
 # define WIDTH 900
@@ -39,7 +39,7 @@ typedef	struct	s_fract
 	double		z_i;
 	int			itmax;
 	double		zoom;
-	double		color;
+	int			color;
 }				t_fract;
 
 typedef struct	s_env
@@ -80,6 +80,7 @@ int				ft_good_arg(char **av);
 
 int				ft_close(t_env *ptr);
 int				key_hook(int x, t_env *ptr);
+int				color(t_env *ptr, int it);
 
 int				ft_error(char *fract);
 int				ft_usage(void);

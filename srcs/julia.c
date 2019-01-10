@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:18:41 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/10 14:11:12 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/10 19:55:34 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,19 @@ t_env		*ft_draw_julia(t_env *ptr)
 	i = 0;
 	ptr->name.c_r = 0.285;
 	ptr->name.c_i = 0.01;
-	ptr->name.z_r = ptr->x / ptr->name.zoom + ptr->name.x1;
-	ptr->name.z_i = ptr->y / ptr->name.zoom + ptr->name.y1;
+	ptr->name.z_r = (ptr->x + ptr->x1) / ptr->name.zoom + ptr->name.x1;
+	ptr->name.z_i = (ptr->y + ptr->y1) / ptr->name.zoom + ptr->name.y1;
 	while (ptr->name.z_r * ptr->name.z_r + ptr->name.z_i * ptr->name.z_i < 4 && i < ptr->name.itmax)
 	{
 		tmp = ptr->name.z_r;
 		ptr->name.z_r = ptr->name.z_r * ptr->name.z_r - ptr->name.z_i * ptr->name.z_i - 0.8 + (ptr->name.c_r / WIDTH);
-    	ptr->name.z_i = 2 * ptr->name.z_i * tmp + ptr->name.c_i / WIDTH;
+		ptr->name.z_i = 2 * ptr->name.z_i * tmp + ptr->name.c_i / WIDTH;
 		i++;
 	}
 	if (i == ptr->name.itmax)
-		put_pixel(ptr, ptr->x, ptr->y, /*ft_abs((ptr->x - ptr->y) / 2 - (WIDTH + HEIGH) / 2) * 27500*/random_color());
+		put_pixel(ptr, ptr->x, ptr->y, color(ptr, i));
 	else
-		put_pixel(ptr, ptr->x, ptr->y, 0x0);
+		put_pixel(ptr, ptr->x, ptr->y, ptr->name.color == 1 ? 0x0 : color(ptr, i));
 	return(ptr);
 }
 
