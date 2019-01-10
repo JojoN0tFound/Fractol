@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/02 16:08:24 by jquivogn          #+#    #+#             */
-/*   Updated: 2019/01/09 20:43:54 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/10 12:37:48 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,22 @@ int		ft_move(t_env *ptr, int x)
 {
 	if (x == 0)
 	{
-		ptr->x += 15;
+		ptr->x1 += 30;
 		ft_fractol(ptr);
 	}
 	else if (x == 13)
 	{
-		ptr->y += 15;
+		ptr->y1 += 30;
 		ft_fractol(ptr);
 	}
 	else if (x == 2)
 	{
-		ptr->x -= 15;
+		ptr->x1 -= 30;
 		ft_fractol(ptr);
 	}
 	else if (x == 1)
 	{
-		ptr->y -= 15;
+		ptr->y1 -= 30;
 		ft_fractol(ptr);
 	}
 	return (0);
@@ -63,10 +63,12 @@ int		ft_zoom(int x, t_env *ptr)
 	if (x == 126)
 	{
 		ptr->name.zoom *= 1.3;
+		ptr->name.itmax += 1;
 	}
 	else
 	{
 		ptr->name.zoom /= 1.3;
+		ptr->name.itmax -= 1;
 	}
 	ft_fractol(ptr);
 	return (1);

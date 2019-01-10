@@ -6,20 +6,20 @@
 /*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 19:15:02 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/09 14:00:01 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/10 12:24:06 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include <mlx.h>
+//# include <mlx.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <math.h>
 # include "../libft/libft.h"
 
-//#include "../../../minilibx_macos/mlx.h"
+#include "../../../minilibx_macos/mlx.h"
 #include <stdio.h>
 
 # define WIDTH 900
@@ -55,6 +55,8 @@ typedef struct	s_env
 	int		pix;
 	double	x;
 	double	y;
+	double	x1;
+	double	y1;
 	t_fract	name;
 }				t_env;
 

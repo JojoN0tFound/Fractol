@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:18:41 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/09 20:44:36 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/10 14:11:12 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_env		*ft_draw_julia(t_env *ptr)
 		i++;
 	}
 	if (i == ptr->name.itmax)
-		put_pixel(ptr, ptr->x, ptr->y, /*ft_abs((ptr->x - ptr->y) / 2 - (WIDTH + HEIGH) / 2) * 27500random_color()*/5000);
+		put_pixel(ptr, ptr->x, ptr->y, /*ft_abs((ptr->x - ptr->y) / 2 - (WIDTH + HEIGH) / 2) * 27500*/random_color());
 	else
 		put_pixel(ptr, ptr->x, ptr->y, 0x0);
 	return(ptr);

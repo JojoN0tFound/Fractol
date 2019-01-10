@@ -6,7 +6,7 @@
 #    By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/26 00:27:28 by julesqvgn         #+#    #+#              #
-#    Updated: 2019/01/09 14:00:17 by jquivogn         ###   ########.fr        #
+#    Updated: 2019/01/10 12:18:50 by julesqvgn        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ OBJS = $(SRCS:.c=.o)
 
 INC = -I./include/
 
-LIBFT = -lft -L./libft/ -I./libft/
+LIBFT = -L./../../minilibx_macos/ -lft -L./libft/ -I./libft/
 
 MLX = -lmlx -framework OpenGL -framework AppKit
 

@@ -6,7 +6,7 @@
 /*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:23:12 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/04 16:49:06 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/10 14:11:25 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_env		*ft_draw_mandelbrot(t_env *ptr)
 	if (i == ptr->name.itmax)
 		put_pixel(ptr, ptr->x, ptr->y, 0);
 	else
-		put_pixel(ptr, ptr->x, ptr->y, ptr->name.z_r * 500);
+		put_pixel(ptr, ptr->x, ptr->y, /*ptr->name.z_r * 500*/random_color());
 	return(ptr);
 }
 
