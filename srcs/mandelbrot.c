@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:23:12 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/10 18:18:35 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/10 21:37:21 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_env		*ft_draw_mandelbrot(t_env *ptr)
 	if (i == ptr->name.itmax)
 		put_pixel(ptr, ptr->x, ptr->y, 0);
 	else
-		put_pixel(ptr, ptr->x, ptr->y, /*ptr->name.z_r * 500*/random_color());
+		put_pixel(ptr, ptr->x, ptr->y, color(ptr, i));
 	return(ptr);
 }
 

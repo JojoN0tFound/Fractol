@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:16:01 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/10 18:38:08 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/10 21:48:55 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,13 @@ t_env		*julia_init(t_env *ptr)
 	t_fract julia;
 
 	julia.zoom = 400;
-	julia.itmax = 150;
+	julia.itmax = 50;
 	julia.x1 = -1;
 	julia.y1 = -1.2;
 	julia.color = 1;
 	ptr->name = julia;
+	ptr->x1 = 0;
+	ptr->y1 = 0;
 	return (ptr);
 }
 
@@ -63,5 +65,7 @@ t_env		*mandelbrot_init(t_env *ptr)
 	mandelbrot.y1 = -1.2;
 	mandelbrot.color = 1;
 	ptr->name = mandelbrot;
+	ptr->x1 = 0;
+	ptr->y1 = 0;
 	return (ptr);
 }
