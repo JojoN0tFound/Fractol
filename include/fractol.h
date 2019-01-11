@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 19:15:02 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/10 21:37:35 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/11 20:22:53 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-//# include <mlx.h>
+# include <mlx.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <math.h>
 # include "../libft/libft.h"
 
-#include "../../../minilibx_macos/mlx.h"
+//#include "../../../minilibx_macos/mlx.h"
 #include <stdio.h>
 
-# define WIDTH 900
+# define WIDTH 1500
 # define HEIGH 900
 
 typedef	struct	s_fract
@@ -40,6 +40,7 @@ typedef	struct	s_fract
 	int			itmax;
 	double		zoom;
 	int			color;
+	int			rd;
 }				t_fract;
 
 typedef struct	s_env
@@ -66,7 +67,7 @@ int				ft_princ(char *fract);
 int				ft_fractol(t_env *ptr);
 t_env			*ft_draw(t_env *ptr);
 t_env			*put_pixel(t_env *ptr, int x, int y, int color);
-int				random_color(void);
+int				random_color(t_env *ptr);
 double			ft_abs(double a);
 
 t_env			*ft_julia(t_env *ptr);

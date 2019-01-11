@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 16:03:19 by jquivogn          #+#    #+#             */
-/*   Updated: 2019/01/10 21:51:38 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/11 20:22:12 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-int			random_color(void)
+int			random_color(t_env *ptr)
 {
 	char		*c;
 	static int	nb = 0;
 	static int	value;
+	int			bit;
 
+	bit = ptr->name.rd;
 	if (nb == 0)
 	{
 		if (!(c = malloc(999)))
@@ -25,9 +27,9 @@ int			random_color(void)
 		nb = (int)c;
 		free(c);
 	}
-	nb = (nb * 4127);
-	value = (nb % 13625) * 255;
-	return (value < 1000 ? random_color() : value);
+	nb = (nb * 41277);
+	value = ((nb % 136257) * 0xff0000) >> bit;
+	return (value < 0x00000f ? random_color(ptr) : value);
 }
 
 int			red(int i, size_t color)
@@ -78,7 +80,7 @@ int			green(int i, size_t color)
 int			color(t_env *ptr, int it)
 {
 	if (ptr->name.color == 1)
-		return (random_color());
+		return (random_color(ptr));
 	if (ptr->name.color == 2)
 		return (red(it, 0));
 	if (ptr->name.color == 3)

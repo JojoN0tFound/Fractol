@@ -6,7 +6,7 @@
 /*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:17:50 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/10 18:18:01 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/11 19:43:24 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int			ft_fractol(t_env *ptr)
 	if (!(ptr = ft_draw(ptr)))
 		return (0);
 	mlx_put_image_to_window(ptr->mlx_ptr, ptr->win_ptr, ptr->img_ptr, 0, 0);
-	//ptr->fract == 0 ? mlx_hook(ptr->win_ptr, 6, 1L << 6, mouse_julia, ptr) : 0;
+	ptr->fract == 0 ? mlx_hook(ptr->win_ptr, 6, 1L << 6, mouse_julia, ptr) : 0;
 	mlx_hook(ptr->win_ptr, 2, 1L << 0, key_hook, ptr);
 	mlx_loop(ptr->mlx_ptr);
 	mlx_destroy_image(ptr->mlx_ptr, ptr->img_ptr);

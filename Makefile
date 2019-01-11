@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+         #
+#    By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/26 00:27:28 by julesqvgn         #+#    #+#              #
-#    Updated: 2019/01/10 21:37:53 by julesqvgn        ###   ########.fr        #
+#    Updated: 2019/01/11 16:15:48 by jquivogn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ OBJS = $(SRCS:.c=.o)
 
 INC = -I./include/
 
-LIBFT = -L./../../minilibx_macos/ -lft -L./libft/ -I./libft/
+LIBFT =  -lft -L./libft/ -I./libft/
 
 MLX = -lmlx -framework OpenGL -framework AppKit
 

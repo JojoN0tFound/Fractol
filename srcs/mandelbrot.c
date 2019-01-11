@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:23:12 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/10 21:37:21 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/11 20:29:35 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ t_env		*ft_draw_mandelbrot(t_env *ptr)
 	double	tmp;
 
 	i = 0;
-	ptr->name.c_r = (ptr->x + ptr->x1) / ptr->name.zoom + ptr->name.x1;
-	ptr->name.c_i = (ptr->y + ptr->y1) / ptr->name.zoom + ptr->name.y1;
+	ptr->name.c_r = (ptr->x + ptr->x1 - WIDTH / 2) / (ptr->name.zoom + ptr->name.x1);
+	ptr->name.c_i = (ptr->y + ptr->y1 - HEIGH / 2) / (ptr->name.zoom + ptr->name.y1);
 	ptr->name.z_r = 0;
 	ptr->name.z_i = 0;
 	while (ptr->name.z_r * ptr->name.z_r + ptr->name.z_i * ptr->name.z_i < 4 && i < ptr->name.itmax)
