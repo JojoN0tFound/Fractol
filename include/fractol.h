@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 19:15:02 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/11 20:22:53 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/14 00:24:42 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include <mlx.h>
+//# include <mlx.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <math.h>
 # include "../libft/libft.h"
 
-//#include "../../../minilibx_macos/mlx.h"
+#include "../../../minilibx_macos/mlx.h"
 #include <stdio.h>
 
 # define WIDTH 1500
@@ -27,12 +27,8 @@
 
 typedef	struct	s_fract
 {
-	double		x1;
-	double		x2;
-	double		img_x;
-	double		y1;
-	double		y2;
-	double		img_y;
+	double		xz;
+	double		yz;
 	double		c_r;
 	double		c_i;
 	double		z_r;
@@ -58,6 +54,7 @@ typedef struct	s_env
 	double	y;
 	double	x1;
 	double	y1;
+	int		azoom;
 	t_fract	name;
 }				t_env;
 
@@ -81,9 +78,14 @@ int				ft_good_arg(char **av);
 
 int				ft_close(t_env *ptr);
 int				key_hook(int x, t_env *ptr);
+int				ft_move(t_env *ptr, int x);
+int				ft_changefract(int x, t_env *ptr);
+int				ft_zoom(int x, t_env *ptr);
+int				mouse_click_hook(int k, int x, int y, t_env *e);
 int				color(t_env *ptr, int it);
 
 int				ft_error(char *fract);
 int				ft_usage(void);
+int				ft_command(void);
 
 #endif

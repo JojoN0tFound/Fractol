@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/02 16:08:24 by jquivogn          #+#    #+#             */
-/*   Updated: 2019/01/11 21:18:19 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/14 00:26:59 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,21 @@ int		ft_move(t_env *ptr, int x)
 	if (x == 0)
 	{
 		ptr->x1 += 30;
-		ptr->name.x2 += 30;
 		ft_fractol(ptr);
 	}
 	else if (x == 13)
 	{
 		ptr->y1 += 30;
-		ptr->name.y2 += 30;
 		ft_fractol(ptr);
 	}
 	else if (x == 2)
 	{
 		ptr->x1 -= 30;
-		ptr->name.x2 -= 30;
 		ft_fractol(ptr);
 	}
 	else if (x == 1)
 	{
 		ptr->y1 -= 30;
-		ptr->name.y2 -= 30;
 		ft_fractol(ptr);
 	}
 	return (0);
@@ -67,15 +63,15 @@ int		ft_zoom(int x, t_env *ptr)
 	if (x == 126)
 	{
 		ptr->name.zoom *= 1.3;
-		ptr->name.x1 *= 1.3;
-		ptr->name.y1 *= 1.3;
+		ptr->name.xz *= 1.3;
+		ptr->name.yz *= 1.3;
 		ptr->name.itmax += 1;
 	}
 	else
 	{
 		ptr->name.zoom /= 1.3;
-		ptr->name.x1 /= 1.3;
-		ptr->name.y1 /= 1.3;
+		ptr->name.xz /= 1.3;
+		ptr->name.yz /= 1.3;
 		ptr->name.itmax -= 1;
 	}
 	ft_fractol(ptr);
@@ -104,6 +100,29 @@ int		select_color(int x, t_env *ptr)
 	return (1);
 }
 
+int		mouse_click_hook(int k, int x, int y, t_env *ptr)
+{
+	if (k == 4)
+	{
+		ptr->x1 += x / 5;
+		ptr->y1 += y / 5;
+		ptr->name.zoom = ptr->name.zoom * 1.2;
+		ptr->name.yz = ptr->name.yz * 1.2;
+		ptr->name.xz = ptr->name.xz * 1.2;
+		ptr->name.itmax++;
+	}
+	if (k == 5)
+	{
+		ptr->x1 -= x / 5;
+		ptr->y1 -= y / 5;
+		ptr->name.zoom = ptr->name.zoom / 1.2;
+		ptr->name.yz = ptr->name.yz / 1.2;
+		ptr->name.xz = ptr->name.xz / 1.2;
+		ptr->name.itmax--;
+	}
+	ft_fractol(ptr);
+	return (0);
+}
 int		key_hook(int x, t_env *ptr)
 {
 	ft_bzero(ptr->buff, HEIGH * WIDTH * 4);
