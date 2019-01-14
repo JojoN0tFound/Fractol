@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+         #
+#    By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/26 00:27:28 by julesqvgn         #+#    #+#              #
-#    Updated: 2019/01/12 16:18:52 by julesqvgn        ###   ########.fr        #
+#    Updated: 2019/01/14 19:19:01 by jquivogn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS =	srcs/main.c\
 		srcs/pixel.c\
 		srcs/hook.c\
 		srcs/color.c\
+		srcs/burningship.c\
 		#srcs/hook2.c\
 		#srcs/tools.c\
 
@@ -32,7 +33,7 @@ OBJS = $(SRCS:.c=.o)
 
 INC = -I./include/
 
-LIBFT =  -L./../../minilibx_macos/ -lft -L./libft/ -I./libft/
+LIBFT = -lft -L./libft/ -I./libft/
 
 MLX = -lmlx -framework OpenGL -framework AppKit
 

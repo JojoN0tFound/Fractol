@@ -6,7 +6,7 @@
 /*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 16:03:19 by jquivogn          #+#    #+#             */
-/*   Updated: 2019/01/11 20:22:12 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/14 16:28:36 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int			random_color(t_env *ptr)
 	}
 	nb = (nb * 41277);
 	value = ((nb % 136257) * 0xff0000) >> bit;
-	return (value < 0x00000f ? random_color(ptr) : value);
+	return (value < 0x00000f || value > 0xffffff ? random_color(ptr) : value);
 }
 
 int			red(int i, size_t color)

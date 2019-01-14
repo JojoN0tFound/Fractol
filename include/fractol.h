@@ -3,27 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 19:15:02 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/14 00:24:42 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/14 19:39:38 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-//# include <mlx.h>
+# include <mlx.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <math.h>
 # include "../libft/libft.h"
 
-#include "../../../minilibx_macos/mlx.h"
+//#include "../../../minilibx_macos/mlx.h"
 #include <stdio.h>
 
-# define WIDTH 1500
-# define HEIGH 900
+# define WIDTH 900
+# define HEIGH 750
 
 typedef	struct	s_fract
 {
@@ -55,6 +55,7 @@ typedef struct	s_env
 	double	x1;
 	double	y1;
 	int		azoom;
+	int		toogle;
 	t_fract	name;
 }				t_env;
 
@@ -72,6 +73,8 @@ t_env			*julia_init(t_env *ptr);
 int				mouse_julia(int x, int y, t_env *data);
 t_env			*ft_mandelbrot(t_env *ptr);
 t_env			*mandelbrot_init(t_env *ptr);
+t_env			*ft_burningship(t_env *ptr);
+t_env			*burningship_init(t_env *ptr);
 
 t_env			*ft_init(t_env *ptr, char *fract);
 int				ft_good_arg(char **av);
@@ -86,6 +89,6 @@ int				color(t_env *ptr, int it);
 
 int				ft_error(char *fract);
 int				ft_usage(void);
-int				ft_command(void);
+int				ft_command(t_env *ptr);
 
 #endif

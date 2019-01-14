@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 19:03:12 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/02 22:40:41 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/14 19:27:58 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int		ft_princ(char *fract)
 	}
 	ptr->fract = (ft_strcmp(fract, "Julia") == 0) ? 0 : ptr->fract;
 	ptr->fract = (ft_strcmp(fract, "Mandelbrot") == 0) ? 1 : ptr->fract;
+	ptr->fract = (ft_strcmp(fract, "Burningship") == 0) ? 2 : ptr->fract;
 	if (ptr->fract == -1 || !ft_fractol(ptr))
 		ft_error(fract);
 	free(ptr);
