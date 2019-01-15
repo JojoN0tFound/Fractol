@@ -6,7 +6,7 @@
 /*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 19:09:07 by jquivogn          #+#    #+#             */
-/*   Updated: 2019/01/14 19:20:24 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/15 14:19:05 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,17 @@ t_env		*ft_draw_burningship(t_env *ptr)
 	double	tmp;
 
 	i = 0;
-	ptr->name.c_r = (ptr->x + ptr->x1 - WIDTH / 2) / (ptr->name.zoom + ptr->name.xz);
-	ptr->name.c_i = (ptr->y + ptr->y1 - HEIGH / 2) / (ptr->name.zoom + ptr->name.yz);
+	ptr->name.c_r = (ptr->x + ptr->x1) / ptr->name.zoom + ptr->name.xmin;
+	ptr->name.c_i = (ptr->y + ptr->y1) / ptr->name.zoom + ptr->name.ymin;
 	ptr->name.z_r = 0;
 	ptr->name.z_i = 0;
 	while (ptr->name.z_r * ptr->name.z_r + ptr->name.z_i * ptr->name.z_i < 4
 			&& i < ptr->name.itmax)
 	{
-		tmp = ptr->name.z_r * ptr->name.z_r - ptr->name.z_i * ptr->name.z_i + ptr->name.c_r;
-		ptr->name.z_i = ft_abs(2 * ptr->name.z_r * ptr->name.z_i) + ptr->name.c_i;
+		tmp = ptr->name.z_r * ptr->name.z_r - ptr->name.z_i *
+			ptr->name.z_i + ptr->name.c_r;
+		ptr->name.z_i = ft_abs(2 * ptr->name.z_r * ptr->name.z_i) +
+			ptr->name.c_i;
 		ptr->name.z_r = tmp;
 		i++;
 	}

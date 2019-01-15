@@ -6,7 +6,7 @@
 /*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 19:03:12 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/14 19:27:58 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/15 12:39:00 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int		ft_princ(char *fract)
 		ft_error(fract);
 		return (0);
 	}
+	ptr->jmouse = 0;
 	ptr->fract = (ft_strcmp(fract, "Julia") == 0) ? 0 : ptr->fract;
 	ptr->fract = (ft_strcmp(fract, "Mandelbrot") == 0) ? 1 : ptr->fract;
 	ptr->fract = (ft_strcmp(fract, "Burningship") == 0) ? 2 : ptr->fract;
@@ -38,14 +39,7 @@ int		main(int ac, char **av)
 	if (ac == 1 || ac > 3)
 		ft_usage();
 	else if (!av[2] && ft_good_arg(av))
-	{
 		ft_princ(av[1]);
-	}
-	// else if (ft_good_arg(av) && ft_good_arg(av + 1) && ft_strcmp(av[1], av[2]))
-	// {
-	// 	ft_princ(av[1]);
-	// 	ft_princ(av[2]);
-	// }
 	else
 	{
 		ft_usage();

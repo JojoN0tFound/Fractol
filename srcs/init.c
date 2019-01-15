@@ -6,7 +6,7 @@
 /*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:16:01 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/14 19:21:40 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/15 14:15:57 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,12 @@ t_env		*julia_init(t_env *ptr)
 
 	julia.zoom = 200;
 	julia.itmax = 50;
-	julia.xz = 1;
-	julia.yz = 1;
-	julia.rd = 0;
+	julia.xmin = -2;
+	julia.ymin = -1.9;
+	julia.xmax = 2;
+	julia.ymax = 1.9;
 	julia.color = 2;
+	julia.rd = 0;
 	ptr->name = julia;
 	ptr->x1 = 0;
 	ptr->y1 = 0;
@@ -63,11 +65,13 @@ t_env		*mandelbrot_init(t_env *ptr)
 
 	mandelbrot.zoom = 200;
 	mandelbrot.itmax = 50;
-	mandelbrot.xz = 1;
-	mandelbrot.yz = 1;
+	mandelbrot.xmin = -2.35;
+	mandelbrot.ymin = -1.9;
+	mandelbrot.xmax = 2.35;
+	mandelbrot.ymax = 1.9;
+	mandelbrot.color = 2;
+	mandelbrot.rd = 0;
 	ptr->name = mandelbrot;
-	ptr->name.color = ptr->init == 1 ? ptr->name.color : 2;
-	ptr->name.rd = ptr->init == 1 ? ptr->name.rd : 0;
 	ptr->x1 = 0;
 	ptr->y1 = 0;
 	return (ptr);
@@ -79,11 +83,13 @@ t_env		*burningship_init(t_env *ptr)
 
 	burningship.zoom = 200;
 	burningship.itmax = 50;
-	burningship.xz = 1;
-	burningship.yz = 1;
+	burningship.xmin = -2.5;
+	burningship.ymin = -2.4;
+	burningship.xmax = 2.5;
+	burningship.ymax = 2.4;
+	burningship.color = 2;
+	burningship.rd = 0;
 	ptr->name = burningship;
-	ptr->name.color = ptr->init == 1 ? ptr->name.color : 2;
-	ptr->name.rd = ptr->init == 1 ? ptr->name.rd : 0;
 	ptr->x1 = 0;
 	ptr->y1 = 0;
 	return (ptr);

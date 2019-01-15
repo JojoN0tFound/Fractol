@@ -6,7 +6,7 @@
 #    By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/26 00:27:28 by julesqvgn         #+#    #+#              #
-#    Updated: 2019/01/14 19:19:01 by jquivogn         ###   ########.fr        #
+#    Updated: 2019/01/15 14:20:06 by jquivogn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,12 +22,11 @@ SRCS =	srcs/main.c\
 		srcs/check.c\
 		srcs/julia.c\
 		srcs/mandelbrot.c\
-		srcs/pixel.c\
+		srcs/tool.c\
 		srcs/hook.c\
 		srcs/color.c\
 		srcs/burningship.c\
-		#srcs/hook2.c\
-		#srcs/tools.c\
+		srcs/hook2.c
 
 OBJS = $(SRCS:.c=.o)
 

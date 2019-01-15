@@ -6,7 +6,7 @@
 /*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 19:15:02 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/14 19:39:38 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/15 14:20:19 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@
 
 typedef	struct	s_fract
 {
-	double		xz;
-	double		yz;
+	double		xmin;
+	double		ymin;
+	double		xmax;
+	double		ymax;
 	double		c_r;
 	double		c_i;
 	double		z_r;
@@ -37,6 +39,8 @@ typedef	struct	s_fract
 	double		zoom;
 	int			color;
 	int			rd;
+	double		c_r_x;
+	double		c_i_y;
 }				t_fract;
 
 typedef struct	s_env
@@ -56,39 +60,56 @@ typedef struct	s_env
 	double	y1;
 	int		azoom;
 	int		toogle;
+	int		jmouse;
 	t_fract	name;
 }				t_env;
 
+/*main.c*/
 int				main(int ac, char **av);
 int				ft_princ(char *fract);
-
+/*init.c*/
+t_env			*ft_init(t_env *ptr, char *fract);
+t_env			*julia_init(t_env *ptr);
+t_env			*mandelbrot_init(t_env *ptr);
+t_env			*burningship_init(t_env *ptr);
+/*draw.c*/
 int				ft_fractol(t_env *ptr);
 t_env			*ft_draw(t_env *ptr);
 t_env			*put_pixel(t_env *ptr, int x, int y, int color);
-int				random_color(t_env *ptr);
-double			ft_abs(double a);
-
+/*julia.c*/
 t_env			*ft_julia(t_env *ptr);
-t_env			*julia_init(t_env *ptr);
+t_env			*ft_draw_julia(t_env *ptr);
 int				mouse_julia(int x, int y, t_env *data);
+/*mandelbrot.c*/
 t_env			*ft_mandelbrot(t_env *ptr);
-t_env			*mandelbrot_init(t_env *ptr);
+t_env			*ft_draw_mandelbrot(t_env *ptr);
+/*burningship.c*/
 t_env			*ft_burningship(t_env *ptr);
-t_env			*burningship_init(t_env *ptr);
-
-t_env			*ft_init(t_env *ptr, char *fract);
-int				ft_good_arg(char **av);
-
-int				ft_close(t_env *ptr);
+t_env			*ft_draw_burningship(t_env *ptr);
+/*color.c*/
+int				color(t_env *ptr, int it);
+int				random_color(t_env *ptr);
+int				red(int i, size_t color);
+int				blue(int i, size_t color);
+int				green(int i, size_t color);
+/*hook.c*/
 int				key_hook(int x, t_env *ptr);
+int				ft_close(t_env *ptr);
+int				mouse_zoom(int k, int x, int y, t_env *e);
+int				ft_toogle(t_env *ptr);
+int				ft_itmax(int x, t_env *ptr);
+/*hook2.c*/
 int				ft_move(t_env *ptr, int x);
 int				ft_changefract(int x, t_env *ptr);
-int				ft_zoom(int x, t_env *ptr);
-int				mouse_click_hook(int k, int x, int y, t_env *e);
-int				color(t_env *ptr, int it);
-
+int				select_color(int x, t_env *ptr);
+int				ft_reset(t_env *ptr);
+/*check.c*/
+int				ft_good_arg(char **av);
+/*output.c*/
 int				ft_error(char *fract);
 int				ft_usage(void);
 int				ft_command(t_env *ptr);
+/*tool.c*/
+double			ft_abs(double a);
 
 #endif
