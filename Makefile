@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+         #
+#    By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/26 00:27:28 by julesqvgn         #+#    #+#              #
-#    Updated: 2019/01/15 14:20:06 by jquivogn         ###   ########.fr        #
+#    Updated: 2019/01/16 15:33:23 by julesqvgn        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,13 +26,15 @@ SRCS =	srcs/main.c\
 		srcs/hook.c\
 		srcs/color.c\
 		srcs/burningship.c\
-		srcs/hook2.c
+		srcs/hook2.c\
+		srcs/bimandelbrot.c\
+		srcs/negmandelbrot.c
 
 OBJS = $(SRCS:.c=.o)
 
 INC = -I./include/
 
-LIBFT = -lft -L./libft/ -I./libft/
+LIBFT = -L./../../minilibx_macos -lft -L./libft/ -I./libft/
 
 MLX = -lmlx -framework OpenGL -framework AppKit
 

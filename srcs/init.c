@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:16:01 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/15 14:15:57 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/15 23:12:55 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,24 @@ t_env		*burningship_init(t_env *ptr)
 	burningship.color = 2;
 	burningship.rd = 0;
 	ptr->name = burningship;
+	ptr->x1 = 0;
+	ptr->y1 = 0;
+	return (ptr);
+}
+
+t_env		*sierpinski_init(t_env *ptr)
+{
+	t_fract sierpinski;
+
+	sierpinski.zoom = 200;
+	sierpinski.xmin = -2.5;
+	sierpinski.ymin = -1.9;
+	sierpinski.xmax = 2.5;
+	sierpinski.ymax = 1.9;
+	sierpinski.color = 2;
+	sierpinski.rd = 0;
+	sierpinski.itmax = 50;
+	ptr->name = sierpinski;
 	ptr->x1 = 0;
 	ptr->y1 = 0;
 	return (ptr);

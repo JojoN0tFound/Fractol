@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 19:15:02 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/15 14:20:19 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/16 15:33:31 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include <mlx.h>
+//# include <mlx.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <math.h>
 # include "../libft/libft.h"
 
-//#include "../../../minilibx_macos/mlx.h"
+#include "../../../minilibx_macos/mlx.h"
 #include <stdio.h>
 
 # define WIDTH 900
@@ -47,6 +47,7 @@ typedef struct	s_env
 {
 	int		init;
 	int		fract;
+	char	*f;
 	void	*win_ptr;
 	void	*img_ptr;
 	void	*mlx_ptr;
@@ -72,6 +73,7 @@ t_env			*ft_init(t_env *ptr, char *fract);
 t_env			*julia_init(t_env *ptr);
 t_env			*mandelbrot_init(t_env *ptr);
 t_env			*burningship_init(t_env *ptr);
+t_env			*sierpinski_init(t_env *ptr);
 /*draw.c*/
 int				ft_fractol(t_env *ptr);
 t_env			*ft_draw(t_env *ptr);
@@ -83,6 +85,12 @@ int				mouse_julia(int x, int y, t_env *data);
 /*mandelbrot.c*/
 t_env			*ft_mandelbrot(t_env *ptr);
 t_env			*ft_draw_mandelbrot(t_env *ptr);
+/*bimandelbrot.c*/
+t_env			*ft_bimandelbrot(t_env *ptr);
+t_env			*ft_draw_bimandelbrot(t_env *ptr);
+/*negmandelbrot.c*/
+t_env			*ft_negmandelbrot(t_env *ptr);
+t_env			*ft_draw_negmandelbrot(t_env *ptr);
 /*burningship.c*/
 t_env			*ft_burningship(t_env *ptr);
 t_env			*ft_draw_burningship(t_env *ptr);
@@ -111,5 +119,7 @@ int				ft_usage(void);
 int				ft_command(t_env *ptr);
 /*tool.c*/
 double			ft_abs(double a);
+double			ft_max(double b, double r, double v);
+void			ft_name(t_env *ptr);
 
 #endif

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   bimandelbrot.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/26 00:23:12 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/16 14:56:46 by julesqvgn        ###   ########.fr       */
+/*   Created: 2019/01/16 02:22:05 by julesqvgn         #+#    #+#             */
+/*   Updated: 2019/01/16 02:23:30 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-t_env		*ft_draw_mandelbrot(t_env *ptr)
+t_env		*ft_draw_bimandelbrot(t_env *ptr)
 {
 	int		i;
 	double	tmp;
@@ -26,8 +26,8 @@ t_env		*ft_draw_mandelbrot(t_env *ptr)
 			i < ptr->name.itmax)
 	{
 		tmp = ptr->name.z_r;
-		ptr->name.z_r = ptr->name.z_r * ptr->name.z_r - ptr->name.z_i * ptr->name.z_i + ptr->name.c_r;
-		ptr->name.z_i = 2 * ptr->name.z_i * tmp + ptr->name.c_i;
+		ptr->name.z_r =  ptr->name.z_r * ptr->name.z_r * ptr->name.z_r - 3 * ptr->name.z_r * ptr->name.z_i * ptr->name.z_i + ptr->name.c_r;
+		ptr->name.z_i = 3 * tmp * tmp * ptr->name.z_i - ptr->name.z_i *  ptr->name.z_i * ptr->name.z_i + ptr->name.c_i;
 		i++;
 	}
 	if (i == ptr->name.itmax)
@@ -37,10 +37,10 @@ t_env		*ft_draw_mandelbrot(t_env *ptr)
 	return (ptr);
 }
 
-t_env		*ft_mandelbrot(t_env *ptr)
+t_env		*ft_bimandelbrot(t_env *ptr)
 {
 	if (ptr->init == 0)
 		ptr = mandelbrot_init(ptr);
-	ptr = ft_draw_mandelbrot(ptr);
+	ptr = ft_draw_bimandelbrot(ptr);
 	return (ptr);
 }

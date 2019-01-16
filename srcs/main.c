@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 19:03:12 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/15 12:39:00 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/16 15:44:28 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,12 @@ int		ft_princ(char *fract)
 		return (0);
 	}
 	ptr->jmouse = 0;
+	ptr->f = fract;
 	ptr->fract = (ft_strcmp(fract, "Julia") == 0) ? 0 : ptr->fract;
 	ptr->fract = (ft_strcmp(fract, "Mandelbrot") == 0) ? 1 : ptr->fract;
 	ptr->fract = (ft_strcmp(fract, "Burningship") == 0) ? 2 : ptr->fract;
+	ptr->fract = (ft_strcmp(fract, "Bimandelbrot") == 0) ? 3 : ptr->fract;
+	ptr->fract = (ft_strcmp(fract, "Negmandelbrot") == 0) ? 4 : ptr->fract;
 	if (ptr->fract == -1 || !ft_fractol(ptr))
 		ft_error(fract);
 	free(ptr);

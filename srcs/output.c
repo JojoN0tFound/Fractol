@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   output.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:14:47 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/15 14:16:10 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/16 15:48:03 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int		ft_usage(void)
 {
 	write(1, "usage : ./fractol <fractol's name>\n", 35);\
 	write(1, "\nfractol list :\n-- Julia --\n-- Mandelbrot --\n", 45);
-	write(1, "-- Burningship --\n", 18);
+	write(1, "-- Burningship --\n-- Bimandelbrot --\n", 37);
+	write(1, "-- Negmandelbrot --\n", 20);
 	return (0);
 }
 
@@ -54,4 +55,15 @@ int		ft_command(t_env *ptr)
 	mlx_string_put(ptr->mlx_ptr, ptr->win_ptr, 450, 255, 0xffffff,
 	"EXIT : ESCAPE");
 	return (0);
+}
+
+void	ft_name(t_env *ptr)
+{
+	ptr->f = ptr->fract == 0 ? "Julia" : ptr->f;
+	ptr->f = ptr->fract == 1 ? "Mandelbrot" : ptr->f;
+	ptr->f = ptr->fract == 2 ? "Burningship" : ptr->f;
+	ptr->f = ptr->fract == 3 ? "Bimandelbrot" : ptr->f;
+	ptr->f = ptr->fract == 4 ? "Negmandelbrot" : ptr->f;
+	mlx_string_put(ptr->mlx_ptr, ptr->win_ptr, 5, 1, 0xffffff,
+	ptr->f);
 }

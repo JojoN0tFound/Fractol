@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:18:41 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/15 14:16:48 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/16 15:31:29 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int			mouse_julia(int x, int y, t_env *data)
 {
 	if (data->fract == 0 && data->jmouse == 1)
 	{
-		data->name.c_r_x = (x > y ? x : y) * 2;
-		data->name.c_i_y = (x < y ? x : y) * 2;
+		data->name.c_r_x = (x > y ? x : y) * 4;
+		data->name.c_i_y = (x < y ? x : y) * 4;
 		ft_fractol(data);
 	}
 	return (0);

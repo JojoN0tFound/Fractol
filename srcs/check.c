@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:17:11 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/14 19:27:22 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/16 15:44:12 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ int		ft_good_arg(char **av)
 		if (ft_strcmp(av[1], "Mandelbrot") == 0)
 			return (1);
 		if (ft_strcmp(av[1], "Burningship") == 0)
+			return (1);
+		if (ft_strcmp(av[1], "Bimandelbrot") == 0)
+			return (1);
+		if (ft_strcmp(av[1], "Negmandelbrot") == 0)
 			return (1);
 	}
 	return (0);

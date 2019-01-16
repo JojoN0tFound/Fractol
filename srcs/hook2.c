@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 14:01:51 by jquivogn          #+#    #+#             */
-/*   Updated: 2019/01/15 14:02:53 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/16 15:33:48 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ int		ft_changefract(int x, t_env *ptr)
 	if (x == 8)
 	{
 		ptr->fract += 1;
-		ptr->fract %= 3;
+		ptr->fract %= 5;
+		ptr->init = 0;
 		ft_fractol(ptr);
 	}
 	return (0);
