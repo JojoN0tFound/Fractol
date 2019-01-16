@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   output.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:14:47 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/16 15:48:03 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/16 17:35:31 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		ft_command(t_env *ptr)
 	mlx_string_put(ptr->mlx_ptr, ptr->win_ptr, 450, 130, 0xffffff,
 	"CHANGE FRACTAL : C   RESET : R");
 	mlx_string_put(ptr->mlx_ptr, ptr->win_ptr, 450, 155, 0xffffff,
-	"ON / OFF MOUSE JULIA : SAPCE");
+	"ON / OFF MOUSE JULIA : SPACE");
 	mlx_string_put(ptr->mlx_ptr, ptr->win_ptr, 450, 180, 0xffffff,
 	"ZOOM : MOUSE UP      DEZOOM : MOUSE DOWN");
 	mlx_string_put(ptr->mlx_ptr, ptr->win_ptr, 450, 205, 0xffffff,
@@ -66,4 +66,12 @@ void	ft_name(t_env *ptr)
 	ptr->f = ptr->fract == 4 ? "Negmandelbrot" : ptr->f;
 	mlx_string_put(ptr->mlx_ptr, ptr->win_ptr, 5, 1, 0xffffff,
 	ptr->f);
+	mlx_string_put(ptr->mlx_ptr, ptr->win_ptr, 5, 20, 0xffffff,
+	"IT MAX =");
+	mlx_string_put(ptr->mlx_ptr, ptr->win_ptr, 90, 20, 0xffffff,
+	ft_itoa_base(ptr->name.itmax, 10));
+	mlx_string_put(ptr->mlx_ptr, ptr->win_ptr, 5, 40, 0xffffff,
+	"ZOOM =");
+	mlx_string_put(ptr->mlx_ptr, ptr->win_ptr, 70, 40, 0xffffff,
+	ft_itoa_base(ptr->name.zoom, 10));
 }

@@ -3,24 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 19:15:02 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/16 15:33:31 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/16 18:45:27 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-//# include <mlx.h>
+# include <mlx.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <math.h>
 # include "../libft/libft.h"
-
-#include "../../../minilibx_macos/mlx.h"
-#include <stdio.h>
 
 # define WIDTH 900
 # define HEIGH 750
@@ -90,7 +86,7 @@ t_env			*ft_bimandelbrot(t_env *ptr);
 t_env			*ft_draw_bimandelbrot(t_env *ptr);
 /*negmandelbrot.c*/
 t_env			*ft_negmandelbrot(t_env *ptr);
-t_env			*ft_draw_negmandelbrot(t_env *ptr);
+t_env			*ft_draw_negmandelbrot(t_env *ptr, int i, double tmp, double d);
 /*burningship.c*/
 t_env			*ft_burningship(t_env *ptr);
 t_env			*ft_draw_burningship(t_env *ptr);
@@ -117,9 +113,6 @@ int				ft_good_arg(char **av);
 int				ft_error(char *fract);
 int				ft_usage(void);
 int				ft_command(t_env *ptr);
-/*tool.c*/
-double			ft_abs(double a);
-double			ft_max(double b, double r, double v);
 void			ft_name(t_env *ptr);
 
 #endif

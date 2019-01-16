@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/02 16:08:24 by jquivogn          #+#    #+#             */
-/*   Updated: 2019/01/16 15:40:09 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/16 18:48:43 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int		mouse_zoom(int k, int x, int y, t_env *ptr)
 	ptr->name.ymin = ytmp2 - (ytmp2 - ptr->name.ymin) * scale;
 	ptr->name.ymax = ptr->name.ymin + ytmp * scale;
 	ptr->name.zoom = WIDTH / (ptr->name.xmax - ptr->name.xmin);
+	ptr->name.zoom <= 0 ? ptr->name.zoom = 0 : 1;
 	ft_fractol(ptr);
 	return (0);
 }
@@ -56,7 +57,7 @@ int		ft_toogle(t_env *ptr)
 
 int		ft_itmax(int x, t_env *ptr)
 {
-	if (x == 12)
+	if (x == 69)
 		ptr->name.itmax += 10;
 	else if (x == 78)
 		ptr->name.itmax -= 10;
@@ -77,7 +78,7 @@ int		key_hook(int x, t_env *ptr)
 	x == 15 ? ft_reset(ptr) : 1;
 	x == 17 ? ft_toogle(ptr) : 1;
 	x == 78 ? ft_itmax(x, ptr) : 1;
-	x == 12 ? ft_itmax(x, ptr) : 1;
+	x == 69 ? ft_itmax(x, ptr) : 1;
 	if (x >= 18 && x <= 21)
 		select_color(x, ptr);
 	if (x == 49)

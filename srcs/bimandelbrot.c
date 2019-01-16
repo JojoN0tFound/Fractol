@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bimandelbrot.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 02:22:05 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/16 02:23:30 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/16 17:30:08 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ t_env		*ft_draw_bimandelbrot(t_env *ptr)
 			i < ptr->name.itmax)
 	{
 		tmp = ptr->name.z_r;
-		ptr->name.z_r =  ptr->name.z_r * ptr->name.z_r * ptr->name.z_r - 3 * ptr->name.z_r * ptr->name.z_i * ptr->name.z_i + ptr->name.c_r;
-		ptr->name.z_i = 3 * tmp * tmp * ptr->name.z_i - ptr->name.z_i *  ptr->name.z_i * ptr->name.z_i + ptr->name.c_i;
+		ptr->name.z_r = ptr->name.z_r * ptr->name.z_r * ptr->name.z_r - 3 *
+			ptr->name.z_r * ptr->name.z_i * ptr->name.z_i + ptr->name.c_r;
+		ptr->name.z_i = 3 * tmp * tmp * ptr->name.z_i - ptr->name.z_i *
+			ptr->name.z_i * ptr->name.z_i + ptr->name.c_i;
 		i++;
 	}
 	if (i == ptr->name.itmax)

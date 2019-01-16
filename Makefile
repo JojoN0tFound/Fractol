@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+         #
+#    By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/26 00:27:28 by julesqvgn         #+#    #+#              #
-#    Updated: 2019/01/16 15:33:23 by julesqvgn        ###   ########.fr        #
+#    Updated: 2019/01/16 18:25:50 by jquivogn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ SRCS =	srcs/main.c\
 		srcs/check.c\
 		srcs/julia.c\
 		srcs/mandelbrot.c\
-		srcs/tool.c\
 		srcs/hook.c\
 		srcs/color.c\
 		srcs/burningship.c\
@@ -32,9 +31,9 @@ SRCS =	srcs/main.c\
 
 OBJS = $(SRCS:.c=.o)
 
-INC = -I./include/
+INC = -I./
 
-LIBFT = -L./../../minilibx_macos -lft -L./libft/ -I./libft/
+LIBFT = -lft -L./libft/ -I./libft/
 
 MLX = -lmlx -framework OpenGL -framework AppKit
 
@@ -51,9 +50,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS) include/fractol.h
 	@echo "$(BLU)libft compile..."
-	@$(MAKE) -C libft/ 1>/dev/null || true
-	@echo "$(GRN)[SUCCESS]"
-	@echo "$(BLU)compilation .c with $(RED)$(FLAG)$(RED)"
+	@$(MAKE) -C ./libft/ 1>/dev/null || true
 	@echo "$(GRN)[SUCCESS]"
 	@echo "$(BLU)creation -> $(RED)$(NAME)$(RED)"
 	@$(CC) $(CFLAG) $(OBJS) $(LIBFT) -o $(NAME) $(MLX) $(INC) 01>/dev/null || true
@@ -62,13 +59,13 @@ $(NAME) : $(OBJS) include/fractol.h
 clean :
 	@echo "$(YEL)suppression .o"
 	@rm -rf $(OBJS)
-	@$(MAKE) -C libft/ clean
+	@$(MAKE) -C ./libft/ clean
 	@echo "$(GRN)[SUCCESS]"
 
 fclean : clean
 	@echo "$(YEL)suppression $(NAME)"
 	@rm -rf $(NAME)
-	@$(MAKE) -C libft/ fclean
+	@$(MAKE) -C ./libft/ fclean
 	@echo "$(GRN)[SUCCESS]$(RED)"
 
 norme :

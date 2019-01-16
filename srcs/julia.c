@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:18:41 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/16 15:31:29 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/16 16:56:22 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_env		*ft_draw_julia(t_env *ptr)
 	{
 		tmp = ptr->name.z_r;
 		ptr->name.z_r = ptr->name.z_r * ptr->name.z_r - ptr->name.z_i *
-			ptr->name.z_i - 0.8 + (ptr->name.c_r / WIDTH);
+			ptr->name.z_i + (ptr->name.c_r / WIDTH);
 		ptr->name.z_i = 2 * ptr->name.z_i * tmp + ptr->name.c_i / WIDTH;
 		i++;
 	}

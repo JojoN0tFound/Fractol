@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:23:12 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/16 14:56:46 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/16 17:30:33 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ t_env		*ft_draw_mandelbrot(t_env *ptr)
 			i < ptr->name.itmax)
 	{
 		tmp = ptr->name.z_r;
-		ptr->name.z_r = ptr->name.z_r * ptr->name.z_r - ptr->name.z_i * ptr->name.z_i + ptr->name.c_r;
+		ptr->name.z_r = ptr->name.z_r * ptr->name.z_r - ptr->name.z_i *
+			ptr->name.z_i + ptr->name.c_r;
 		ptr->name.z_i = 2 * ptr->name.z_i * tmp + ptr->name.c_i;
 		i++;
 	}
