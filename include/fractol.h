@@ -6,7 +6,7 @@
 /*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 19:15:02 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/16 18:45:27 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/16 23:42:46 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <mlx.h>
 # include <unistd.h>
+# include <math.h>
 # include <stdlib.h>
 # include "../libft/libft.h"
 
@@ -114,5 +115,7 @@ int				ft_error(char *fract);
 int				ft_usage(void);
 int				ft_command(t_env *ptr);
 void			ft_name(t_env *ptr);
+
+t_env		*ft_newton(t_env *ptr);
 
 #endif

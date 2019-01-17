@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:17:50 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/16 15:33:06 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/16 23:42:50 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_env		*ft_draw(t_env *ptr)
 {
 	t_env	*(*draw[5])(t_env *);
 
-	draw[0] = &ft_julia;
+	draw[0] = &ft_newton;
 	draw[1] = &ft_mandelbrot;
 	draw[2] = &ft_burningship;
 	draw[3] = &ft_bimandelbrot;
@@ -56,7 +56,7 @@ int			ft_fractol(t_env *ptr)
 		ft_command(ptr);
 	mlx_hook(ptr->win_ptr, 2, 1L << 0, key_hook, ptr);
 	mlx_mouse_hook(ptr->win_ptr, mouse_zoom, ptr);
-	if (ptr->jmouse != 0 && ptr->fract == 0)
+	if (ptr->jmouse != 1 && ptr->fract == 0)
 		mlx_hook(ptr->win_ptr, 6, 1L << 6, mouse_julia, ptr);
 	mlx_loop(ptr->mlx_ptr);
 	mlx_destroy_image(ptr->mlx_ptr, ptr->img_ptr);

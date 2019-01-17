@@ -6,7 +6,7 @@
 /*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 21:04:46 by jquivogn          #+#    #+#             */
-/*   Updated: 2019/01/16 17:59:03 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/16 21:04:57 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,13 +87,13 @@ char				*ft_itoa_base(long long value, int base)
 		return (NULL);
 	if (!(base_res = (char *)malloc(sizeof(char) * (i + 1))))
 		return (NULL);
-	base_res[i] = '\0';
-	i--;
+	base_res[i--] = '\0';
 	while (i >= 0)
 	{
 		base_res[i] = base_arr[uns % (unsigned long long)base];
 		uns = uns / (unsigned long long)base;
 		i--;
 	}
+	free(base_arr);
 	return (base_res);
 }

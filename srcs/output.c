@@ -6,7 +6,7 @@
 /*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:14:47 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/16 17:35:31 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/16 21:06:01 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,4 @@ void	ft_name(t_env *ptr)
 	ptr->f = ptr->fract == 4 ? "Negmandelbrot" : ptr->f;
 	mlx_string_put(ptr->mlx_ptr, ptr->win_ptr, 5, 1, 0xffffff,
 	ptr->f);
-	mlx_string_put(ptr->mlx_ptr, ptr->win_ptr, 5, 20, 0xffffff,
-	"IT MAX =");
-	mlx_string_put(ptr->mlx_ptr, ptr->win_ptr, 90, 20, 0xffffff,
-	ft_itoa_base(ptr->name.itmax, 10));
-	mlx_string_put(ptr->mlx_ptr, ptr->win_ptr, 5, 40, 0xffffff,
-	"ZOOM =");
-	mlx_string_put(ptr->mlx_ptr, ptr->win_ptr, 70, 40, 0xffffff,
-	ft_itoa_base(ptr->name.zoom, 10));
 }

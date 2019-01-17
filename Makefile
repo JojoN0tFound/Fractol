@@ -6,7 +6,7 @@
 #    By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/26 00:27:28 by julesqvgn         #+#    #+#              #
-#    Updated: 2019/01/16 18:25:50 by jquivogn         ###   ########.fr        #
+#    Updated: 2019/01/16 23:43:17 by jquivogn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRCS =	srcs/main.c\
 		srcs/burningship.c\
 		srcs/hook2.c\
 		srcs/bimandelbrot.c\
-		srcs/negmandelbrot.c
+		srcs/negmandelbrot.c\
+		srcs/newton.c
 
 OBJS = $(SRCS:.c=.o)
 
