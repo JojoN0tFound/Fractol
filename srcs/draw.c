@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:17:50 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/16 23:42:50 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/18 18:39:39 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,16 @@ t_env		*put_pixel(t_env *ptr, int x, int y, int color)
 
 t_env		*ft_draw(t_env *ptr)
 {
-	t_env	*(*draw[5])(t_env *);
+	t_env	*(*draw[8])(t_env *);
 
-	draw[0] = &ft_newton;
+	draw[0] = &ft_julia;
 	draw[1] = &ft_mandelbrot;
 	draw[2] = &ft_burningship;
 	draw[3] = &ft_bimandelbrot;
 	draw[4] = &ft_negmandelbrot;
+	draw[5] = &ft_newton;
+	draw[6] = &ft_collatz;
+	draw[7] = &ft_birdofprey;
 	ptr->x = 0;
 	while (ptr->x < WIDTH)
 	{
@@ -56,7 +59,7 @@ int			ft_fractol(t_env *ptr)
 		ft_command(ptr);
 	mlx_hook(ptr->win_ptr, 2, 1L << 0, key_hook, ptr);
 	mlx_mouse_hook(ptr->win_ptr, mouse_zoom, ptr);
-	if (ptr->jmouse != 1 && ptr->fract == 0)
+	if (ptr->jmouse == 0)
 		mlx_hook(ptr->win_ptr, 6, 1L << 6, mouse_julia, ptr);
 	mlx_loop(ptr->mlx_ptr);
 	mlx_destroy_image(ptr->mlx_ptr, ptr->img_ptr);

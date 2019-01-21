@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 16:03:19 by jquivogn          #+#    #+#             */
-/*   Updated: 2019/01/15 14:20:07 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/18 18:24:49 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ int			green(int i, size_t color)
 
 int			color(t_env *ptr, int it)
 {
+	if (ptr->fract == 5 || ptr->fract == 6)
+		it *= 10;
 	if (ptr->name.color == 1)
 		return (random_color(ptr));
 	if (ptr->name.color == 2)

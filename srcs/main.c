@@ -6,7 +6,7 @@
 /*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 19:03:12 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/16 15:44:28 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/18 18:23:21 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int		ft_princ(char *fract)
 	ptr->fract = (ft_strcmp(fract, "Burningship") == 0) ? 2 : ptr->fract;
 	ptr->fract = (ft_strcmp(fract, "Bimandelbrot") == 0) ? 3 : ptr->fract;
 	ptr->fract = (ft_strcmp(fract, "Negmandelbrot") == 0) ? 4 : ptr->fract;
+	ptr->fract = (ft_strcmp(fract, "Newton") == 0) ? 5 : ptr->fract;
+	ptr->fract = (ft_strcmp(fract, "Collatz") == 0) ? 6 : ptr->fract;
 	if (ptr->fract == -1 || !ft_fractol(ptr))
 		ft_error(fract);
 	free(ptr);

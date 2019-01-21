@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/23 19:15:02 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/16 23:42:46 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/18 18:33:21 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include <mlx.h>
+//# include <mlx.h>
 # include <unistd.h>
 # include <math.h>
 # include <stdlib.h>
 # include "../libft/libft.h"
+
+#include "../../../minilibx_macos/mlx.h"
 
 # define WIDTH 900
 # define HEIGH 750
@@ -91,6 +93,14 @@ t_env			*ft_draw_negmandelbrot(t_env *ptr, int i, double tmp, double d);
 /*burningship.c*/
 t_env			*ft_burningship(t_env *ptr);
 t_env			*ft_draw_burningship(t_env *ptr);
+/*newton.c*/
+t_env			*ft_newton(t_env *ptr);
+t_env			*ft_draw_newton(t_env *ptr);
+t_env			*newton_init(t_env *ptr);
+/*collatz.c*/
+t_env			*ft_collatz(t_env *ptr);
+t_env			*ft_draw_collatz(t_env *ptr);
+t_env			*collatz_init(t_env *ptr);
 /*color.c*/
 int				color(t_env *ptr, int it);
 int				random_color(t_env *ptr);
@@ -116,6 +126,6 @@ int				ft_usage(void);
 int				ft_command(t_env *ptr);
 void			ft_name(t_env *ptr);
 
-t_env		*ft_newton(t_env *ptr);
+t_env		*ft_birdofprey(t_env *ptr);
 
 #endif

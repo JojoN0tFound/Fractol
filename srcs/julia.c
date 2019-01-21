@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:18:41 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/16 21:34:18 by jquivogn         ###   ########.fr       */
+/*   Updated: 2019/01/18 18:18:58 by julesqvgn        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int			mouse_julia(int x, int y, t_env *data)
 {
-	if (data->fract == 0 && data->jmouse == 1)
+	if (data->jmouse == 1)
 	{
 		data->name.c_r_x = x * 4;
 		data->name.c_i_y = y * 4 + 200;
