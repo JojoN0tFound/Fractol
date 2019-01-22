@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   collatz.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/18 17:59:08 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/18 18:21:30 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/21 14:08:19 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,14 @@ t_env		*ft_draw_collatz(t_env *ptr)
 		tmp = ptr->name.z_r;
 		c = cos(M_PI * tmp) * cosh(M_PI * ptr->name.z_i);
 		s = sin(M_PI * tmp) * sinh(M_PI * ptr->name.z_i);
-		ptr->name.z_r = (1 + 4 * tmp - c - 2 * tmp * c - 2 * ptr->name.z_i * s) * ptr->name.c_r;
-		ptr->name.z_i = (4 * ptr->name.z_i + s + 2 * tmp * s - 2 * ptr->name.z_i * c) * ptr->name.c_i;
+		ptr->name.z_r = (1 + 4 * tmp - c - 2 * tmp * c - 2 *
+			ptr->name.z_i * s) * ptr->name.c_r;
+		ptr->name.z_i = (4 * ptr->name.z_i + s + 2 * tmp * s - 2 *
+			ptr->name.z_i * c) * ptr->name.c_i;
 		i++;
 	}
-	return (put_pixel(ptr, ptr->x, ptr->y, i == ptr->name.itmax ? 0 : color(ptr, i)));
+	return (put_pixel(ptr, ptr->x, ptr->y, i == ptr->name.itmax ?
+			0 : color(ptr, i)));
 }
 
 t_env		*ft_collatz(t_env *ptr)

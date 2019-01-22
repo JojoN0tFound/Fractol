@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   newton.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 21:20:31 by jquivogn          #+#    #+#             */
-/*   Updated: 2019/01/18 17:53:37 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/21 14:55:52 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,18 @@ t_env		*ft_draw_newton(t_env *ptr)
 	{
 		ptr->name.c_r = ptr->name.z_r * ptr->name.z_r;
 		ptr->name.c_i = ptr->name.z_i * ptr->name.z_i;
-		d = 3.0 * ((ptr->name.c_r - ptr->name.c_i) * (ptr->name.c_r - ptr->name.c_i) + 4.0 * ptr->name.c_r * ptr->name.c_i);
-		if (d == 0.0)
-			d = 0.000001;
+		d = 3.0 * ((ptr->name.c_r - ptr->name.c_i) * (ptr->name.c_r -
+			ptr->name.c_i) + 4.0 * ptr->name.c_r * ptr->name.c_i);
+		d = d == 0.0 ? 0.000001 : d;
 		tmp = ptr->name.z_r;
-		ptr->name.z_r = (2.0 / 3.0) * ptr->name.z_r + (ptr->name.c_r - ptr->name.c_i) / d;
-		ptr->name.z_i = (2.0 / 3.0) * ptr->name.z_i - 2.0 * tmp * ptr->name.z_i / d;
+		ptr->name.z_r = (2.0 / 3.0) * ptr->name.z_r +
+			(ptr->name.c_r - ptr->name.c_i) / d;
+		ptr->name.z_i = (2.0 / 3.0) * ptr->name.z_i -
+			2.0 * tmp * ptr->name.z_i / d;
 		i++;
 	}
-	put_pixel(ptr, ptr->x, ptr->y, color(ptr, i == ptr->name.itmax ? 0 : i));
+	put_pixel(ptr, ptr->x, ptr->y,
+	ptr->name.color == 1 && i == ptr->name.itmax ? 0x0 : color(ptr, i));
 	return (ptr);
 }
 

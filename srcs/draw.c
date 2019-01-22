@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jquivogn <jquivogn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:17:50 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/18 18:39:39 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/21 13:11:26 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_env		*put_pixel(t_env *ptr, int x, int y, int color)
 
 t_env		*ft_draw(t_env *ptr)
 {
-	t_env	*(*draw[8])(t_env *);
+	t_env	*(*draw[7])(t_env *);
 
 	draw[0] = &ft_julia;
 	draw[1] = &ft_mandelbrot;
@@ -33,7 +33,6 @@ t_env		*ft_draw(t_env *ptr)
 	draw[4] = &ft_negmandelbrot;
 	draw[5] = &ft_newton;
 	draw[6] = &ft_collatz;
-	draw[7] = &ft_birdofprey;
 	ptr->x = 0;
 	while (ptr->x < WIDTH)
 	{

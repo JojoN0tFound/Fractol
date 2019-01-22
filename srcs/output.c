@@ -6,7 +6,7 @@
 /*   By: julesqvgn <julesqvgn@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/26 00:14:47 by julesqvgn         #+#    #+#             */
-/*   Updated: 2019/01/18 18:23:03 by julesqvgn        ###   ########.fr       */
+/*   Updated: 2019/01/21 13:20:38 by jquivogn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int		ft_usage(void)
 	write(1, "usage : ./fractol <fractol's name>\n", 35);\
 	write(1, "\nfractol list :\n-- Julia --\n-- Mandelbrot --\n", 45);
 	write(1, "-- Burningship --\n-- Bimandelbrot --\n", 37);
-	write(1, "-- Negmandelbrot --\n-- Newton --\n", 20);
+	write(1, "-- Negmandelbrot --\n-- Newton --\n", 33);
+	write(1, "-- Collatz --\n", 14);
 	return (0);
 }
 
